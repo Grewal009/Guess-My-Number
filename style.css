@@ -85,3 +85,10 @@ button {
 button:hover {
   background-color: rgb(235, 233, 233);
 }
+.result-area > .result {
+  font-size: 25px;
+}
+.check-btn:disabled,
+input:disabled {
+  cursor: not-allowed;
+}

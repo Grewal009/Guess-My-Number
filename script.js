@@ -2,12 +2,14 @@ let input, secretNumber;
 let score = 20;
 let highScore = 0;
 console.log(input);
+
 const secret_noEle = document.querySelector(".secret-no");
 const inputEle = document.querySelector("input");
 const resultEle = document.querySelector(".result");
 const scoreEle = document.querySelector(".score");
 const highScoreEle = document.querySelector(".highscore");
 const container = document.querySelector(".container");
+const checkButton = document.querySelector(".check-btn");
 console.log(container);
 console.log(secret_noEle);
 
@@ -38,6 +40,10 @@ function checkGuess() {
     secret_noEle.textContent = secretNumber;
     container.classList.add("win");
     inputEle.classList.add("win");
+    inputEle.disabled = true;
+    checkButton.disabled = true;
+
+    input = 0;
   } else if (input > secretNumber) {
     resultEle.textContent = "📈 " + input + " is too high!";
     score--;
@@ -59,6 +65,9 @@ function playAgain() {
   secret_noEle.textContent = "?";
   container.classList.remove("win");
   inputEle.classList.remove("win");
+
+  inputEle.disabled = false;
+  checkButton.disabled = false;
 
   generateSecretNumber();
 }
